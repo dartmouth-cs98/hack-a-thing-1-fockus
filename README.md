@@ -2,4 +2,4 @@
 
 # Acknowledgements
 
-> Boilerplate from: https://github.com/electron-react-boilerplate/electron-react-boilerplate
+> Boilerplate from: https://www.npmjs.com/package/electron-react-webpack-boilerplate
