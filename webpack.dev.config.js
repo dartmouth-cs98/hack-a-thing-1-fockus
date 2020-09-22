@@ -20,8 +20,8 @@ module.exports = {
         include: defaultInclude
       },
       {
-        test: /\.(jpe?g|png|gif)$/,
-        use: [{ loader: 'file-loader?name=img/[name]__[hash:base64:5].[ext]' }],
+        test: /\.(pdf|gif|png|jpe?g|svg)$/,
+        use: 'file-loader?name=[path][name].[ext]',
         include: defaultInclude
       },
       {

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../assets/css/landing.css'
 // const { dialog, BrowserWindow } = require('electron')
 import DoneIcon from '@material-ui/icons/Done';
+import { withRouter, Link } from 'react-router-dom'
 
 
 class LandingPage extends Component{
@@ -24,15 +25,28 @@ class LandingPage extends Component{
 
     onUpload = () => {
         // Do routing stuff here
-        if (this.state.urlPDFBoolean || this.state.localPDFBoolean){
+        if (this.state.urlPDFBoolean){
             return (
                 <div className="fullWidth">
-                    <DoneIcon id="checkMark"/>
+                    <Link to={`/ReadPage/${this.localPDFPath}`}>
+                        <DoneIcon id="checkMark"/>
+                    </Link>
+                </div>
+            )
+        }
+
+        else if (this.state.localPDFBoolean){
+            return (
+                <div className="fullWidth">
+                    <Link to={`/ReadPage/${this.urlPDFPath}`}>
+                        <DoneIcon id="checkMark"/>
+                    </Link>
                 </div>
             )
         }
         
     }
+
 
     updateStateURL = () => {
         var urlLink = document.getElementById( "url" ).files[0].path
@@ -76,7 +90,7 @@ class LandingPage extends Component{
                         <label for="file"> {this.fileNameOrDefault()} </label>
                     </div>
 
-                    <p>OR</p>
+                    <p> OR</p>
 
                     <div className="openURL" onClick={this.updateStateURL}>
                         <input className="calltoactionURL" type="url" name="url" id="url"  placeholder="Enter a URL" />
@@ -91,4 +105,4 @@ class LandingPage extends Component{
     }
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);

@@ -87,7 +87,6 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
@@ -104,4 +103,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
