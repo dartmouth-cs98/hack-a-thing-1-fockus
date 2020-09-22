@@ -46,9 +46,13 @@
     "postpackage": "electron-packager ./ --out=./builds"
   },
   "dependencies": {
+    "electron-pdf-window": "^1.0.12",
+    "pdf-viewer-reactjs": "^2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-pdf": "^5.0.0",
+    "react-router-dom": "^5.2.0",
+    "web-viewer": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

@@ -6,13 +6,17 @@ class LoadPage extends Component {
     this.state = {}; // nothing here yet
 
     this.styles = {
+      container: {
+        width: '100%',
+        height: '100%',
+      }
     };
   }
 
   render() {
     return (
-      <div style={{}}>
-
+      <div style={this.styles.container}>
+        bowow
       </div>
     );
   }
