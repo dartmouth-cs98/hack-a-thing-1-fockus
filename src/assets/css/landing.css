@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+#container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #160C28;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10vh;
+}
+
+.startReading{
+    width: 10vw;
+    height: 5vh;
+    background-color: #EFCB68;
+    border: 2px solid #EFCB68;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.openURL{
+    width: 10vw;
+    height: 5vh;
+    /* background-color: #EFCB68; */
+    /* border: 2px #EFCB68; */
+    border: 2px solid #EFCB68;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 15vh;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    width: 30vw;
+    height: fit-content;
+    margin-bottom: 0vh;
+    color: white;
+}
+
+h2{
+    margin-top: 0vh;
+    font-size: 2vh;
+    font-family: 'Playfair Display', serif;
+    font-weight: 100;
+    color: #A62639;
+    text-align: center;
+    width: 30vw;
+    margin-bottom: 3vh;
+}
+
+
+p{
+    text-align: right;
+}
+
+#twoButtons{
+    flex-direction: row;
+    display: flex;
+    width: 30vw;
+    justify-content: space-around;
+}
+
+
+.calltoaction{
+    font-size: 2vh;
+}
+
+.calltoactionURL{
+    font-size: 2vh;
+    color: grey;
+    width: 10vw;
+    height: 5vh;
+    display: flex;
+    text-align: center;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    color: white;
+    display: inline-block;
+}
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+#checkMark{
+    font-size: 7vh;
+    position: absolute;
+}
+
+#checkMark:hover{
+    color: #A62639;
+    cursor: pointer;
+}
+
+.fullWidth{
+    display: flex;
+    justify-content: center;
+}

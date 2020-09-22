@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LandingPage from './LandingPage'
 import {
   HashRouter,
   Route
@@ -11,7 +12,7 @@ class App extends Component {
     return (
       <HashRouter>
         <div>
-          <Route path="/" exact    component={ ReadPage } />
+          <Route path="/" exact    component={ LandingPage } />
           <Route path="/ReadPage"  component={ ReadPage } />
         </div>
       </HashRouter>

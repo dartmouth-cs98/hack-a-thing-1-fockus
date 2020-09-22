@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import electron from 'electron';
+import { withRouter, Link } from 'react-router-dom';
 
 class ReadPage extends Component {
   constructor(props) {
@@ -48,23 +50,17 @@ class ReadPage extends Component {
   }
   
   render() {
-    if (this.doc !== undefined){
       return (
         <div style={this.styles.container}>
-          Loading..**^^
-          <button onClick={() => {this.forceUpdate()}}>try again</button>
-        </div>
-      );
-    } else {
-      return (
-        <div style={this.styles.container}>
-          <iframe src={ 'C:/Users/Abubakar/Desktop/Resume_02.pdf#page=2' } style={this.styles.frame}>
+          <iframe src={this.props.match.params.loc} width='90%' height='90%'>
             This browser does not support PDFs. Please download the PDF to view it: Download PDF
           </iframe>
+          <Link to='/'>
+            Back
+          </Link>
         </div>
       );
-    }
   }
 }
 
-export default ReadPage
+export default withRouter(ReadPage)
