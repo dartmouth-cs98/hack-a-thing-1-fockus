@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import electron from 'electron';
 
 class ReadPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {}; // nothing here yet
-    this.doc = import('C:/Users/Abubakar/Desktop/CS98/hack-a-thing-1-fockus/src/components/webviewer-demo.pdf');
+    this.state = { annoyLevel: 0 }; // nothing here yet
+
+    this.oldPos = electron.screen.getCursorScreenPoint();
+
+    setInterval(this.moveSensor, 1000);
+
     console.log(this.doc);
+
     this.styles = {
       container: {
         display: 'flex',
@@ -15,12 +21,34 @@ class ReadPage extends Component {
         width: '100vw',
         height: '100vh',
         backgroundColor: 'rgba(12,124, 243, 0.6)',
+      },
+      frame: {
+        marginTop: 100,
+        width: '75%',
+        height: '100%',
+        border: 'none',
+        overflow: 'hidden',
       }
-    };
+    }; 
+  }
+
+  moveSensor = () => {
+    let pos = electron.screen.getCursorScreenPoint();
+    console.log(pos);
+
+    if ((this.oldPos.x - pos.x)**2 < this.breakPoint){
+      this.setState((prev) => {
+        return {
+          annoyLevel: 1
+        }
+      });
+    } else {
+
+    }
   }
   
   render() {
-    if (this.doc == undefined){
+    if (this.doc !== undefined){
       return (
         <div style={this.styles.container}>
           Loading..**^^
@@ -30,7 +58,7 @@ class ReadPage extends Component {
     } else {
       return (
         <div style={this.styles.container}>
-          <iframe src={this.doc} width='90%' height='90%'>
+          <iframe src={ 'C:/Users/Abubakar/Desktop/Resume_02.pdf#page=2' } style={this.styles.frame}>
             This browser does not support PDFs. Please download the PDF to view it: Download PDF
           </iframe>
         </div>

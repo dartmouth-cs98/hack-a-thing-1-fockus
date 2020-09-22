@@ -4,6 +4,11 @@
   "description": "Minimal Electron, React, PostCSS and Webpack boilerplate to help you get started with building your next app.",
   "license": "MIT",
   "private": false,
+  "build": {
+    "directories": {
+      "output": "release/"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/alexdevero/electron-react-webpack-boilerplate.git"
@@ -46,6 +51,9 @@
     "postpackage": "electron-packager ./ --out=./builds"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "babel": "^6.23.0",
     "electron-pdf-window": "^1.0.12",
     "pdf-viewer-reactjs": "^2.1.1",
     "react": "^16.13.1",
