@@ -1,14 +1,20 @@
-import '../assets/css/App.css'
 import React, { Component } from 'react'
+import {
+  HashRouter,
+  Route
+} from "react-router-dom";
+import LoadPage from './LoadPage';
+import ReadPage from './ReadPage';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Hello, Electron!</h1>
-
-        <p>I hope you enjoy using basic-electron-react-boilerplate to start your dev off right!</p>
-      </div>
+      <HashRouter>
+        <div>
+          <Route path="/" exact    component={ LoadPage } />
+          <Route path="/ReadPage"  component={ ReadPage } />
+        </div>
+      </HashRouter>
     )
   }
 }
