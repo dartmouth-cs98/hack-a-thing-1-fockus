@@ -49,7 +49,7 @@ class LandingPage extends Component{
 
 
     updateStateURL = () => {
-        var urlLink = document.getElementById( "url" ).files[0].path
+        var urlLink = document.getElementById( "url" )
 
         this.setState({urlPDFPath: urlLink})
         this.setState({urlPDFBoolean: true})
@@ -92,8 +92,8 @@ class LandingPage extends Component{
 
                     <p> OR</p>
 
-                    <div className="openURL" onClick={this.updateStateURL}>
-                        <input className="calltoactionURL" type="url" name="url" id="url"  placeholder="Enter a URL" />
+                    <div className="openURL" >
+                        <input className="calltoactionURL" type="url" name="url" id="url"  placeholder="Enter a URL" onPaste={this.updateStateURL}/>
                     </div>
 
                 </div>
