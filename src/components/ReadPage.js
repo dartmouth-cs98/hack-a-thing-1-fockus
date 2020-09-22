@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import electron from 'electron';
+import { remote } from 'electron';
 import { withRouter, Link } from 'react-router-dom';
 
 class ReadPage extends Component {
@@ -8,11 +8,13 @@ class ReadPage extends Component {
     super(props);
     this.state = { annoyLevel: 0 }; // nothing here yet
 
-    this.oldPos = electron.screen.getCursorScreenPoint();
+    this.oldPos = remote.screen.getCursorScreenPoint();
+
+    this.breakPoint = 5;
 
     setInterval(this.moveSensor, 1000);
 
-    console.log(this.doc);
+    console.log(this.props);
 
     this.styles = {
       container: {
@@ -22,7 +24,7 @@ class ReadPage extends Component {
         alignContent: 'center',
         width: '100vw',
         height: '100vh',
-        backgroundColor: 'rgba(12,124, 243, 0.6)',
+        backgroundColor: '#160C28',
       },
       frame: {
         marginTop: 100,
@@ -35,24 +37,28 @@ class ReadPage extends Component {
   }
 
   moveSensor = () => {
-    let pos = electron.screen.getCursorScreenPoint();
+    let pos = remote.screen.getCursorScreenPoint();
     console.log(pos);
 
-    if ((this.oldPos.x - pos.x)**2 < this.breakPoint){
+    if ((this.oldPos.x - pos.x)**2 < this.breakPoint || (this.oldPos.y - pos.y)**2 < this.breakPoint){
       this.setState((prev) => {
         return {
           annoyLevel: 1
         }
       });
     } else {
-
+      this.setState((prev) => {
+        return {
+          annoyLevel: 0
+        }
+      });
     }
   }
   
   render() {
       return (
         <div style={this.styles.container}>
-          <iframe src={this.props.match.params.loc} width='90%' height='90%'>
+          <iframe src={this.props.location.state.path} width='90%' height='90%'>
             This browser does not support PDFs. Please download the PDF to view it: Download PDF
           </iframe>
           <Link to='/'>

@@ -28,7 +28,12 @@ class LandingPage extends Component{
         if (this.state.urlPDFBoolean){
             return (
                 <div className="fullWidth">
-                    <Link to={`/ReadPage/${this.localPDFPath}`}>
+                    <Link to={{
+                        pathname: '/ReadPage',
+                        state: {
+                            path: this.state.urlPDFPath
+                        }
+                        }}>
                         <DoneIcon id="checkMark"/>
                     </Link>
                 </div>
@@ -38,7 +43,12 @@ class LandingPage extends Component{
         else if (this.state.localPDFBoolean){
             return (
                 <div className="fullWidth">
-                    <Link to={`/ReadPage/${this.urlPDFPath}`}>
+                    <Link to={{
+                        pathname: '/ReadPage',
+                        state: {
+                            path: this.state.localPDFPath
+                        }
+                        }}>
                         <DoneIcon id="checkMark"/>
                     </Link>
                 </div>
